@@ -1,5 +1,17 @@
 require('dotenv').config();
 
+// === SERVEUR POUR RENDER (IMPORTANT) ===
+const http = require('http');
+
+const PORT = process.env.PORT || 10000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot Discord actif');
+}).listen(PORT, '0.0.0.0', () => {
+  console.log(`Serveur actif sur le port ${PORT}`);
+});
+
 const {
   Client,
   GatewayIntentBits,
